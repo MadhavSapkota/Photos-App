@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+	<!-- Base application theme. -->
+	
+	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+		<item name="colorSurface">@android:color/background_light</item>
+	</style>
+	
+	<style name="toolbar_header">
+		<item name="android:layout_height">@dimen/_50sdp</item>
+	
+	</style>
+	
+	<style name="text_16_grammar_text_toolbar">
+		<item name="android:textSize">23sp</item>
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+
+</resources>
