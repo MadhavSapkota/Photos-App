@@ -1,11 +1,9 @@
-package com.example.learnfrench.app
+package com.example.imagepicker.app
 import android.app.Application
 import android.content.Context
 import androidx.fragment.app.FragmentActivity
 import androidx.multidex.MultiDex
-import com.example.imagepicker.app.AppComponent
-import com.example.imagepicker.app.AppModule
-import com.example.learnfrench.app.AppApplication.body.appcontext
+import com.example.imagepicker.app.AppApplication.body.appcontext
 
 
 class AppApplication : Application() {

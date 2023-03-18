@@ -14,5 +14,9 @@
 		<item name="android:textSize">23sp</item>
 		<item name="android:textColor">@android:color/white</item>
 	</style>
+	
+	<style name="ShapeAppearanceOverlay.App.CornerSize6Percent" parent="">
+		<item name="cornerSize">10%</item>
+	</style>
 
 </resources>
