@@ -54,11 +54,18 @@ class ImageAdapter(var context: Context) : RecyclerView.Adapter<ImageHolder>() {
                     catCount++
                 }
             }
-            notifyDataSetChanged()
         }
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
         return uriList.size
     }
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
 }

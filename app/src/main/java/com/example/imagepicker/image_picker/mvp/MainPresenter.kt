@@ -18,5 +18,6 @@ class MainPresenter(
 
     fun setAdapter(imageData:ArrayList<Uri>) {
         mainView.showListItems(imageData, true)
+        mainView.hidePickImage()
     }
 }

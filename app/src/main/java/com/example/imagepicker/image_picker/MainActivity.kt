@@ -1,12 +1,14 @@
 package com.example.imagepicker.image_picker
 import android.Manifest
 import android.Manifest.permission.READ_MEDIA_IMAGES
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -38,10 +40,6 @@ class MainActivity : AppCompatActivity() {
             .build()
             .inject(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(READ_MEDIA_IMAGES), PackageManager.PERMISSION_GRANTED)
-        }
         val view = binding.root
         setContentView(view)
         mainView.start(binding)
@@ -54,6 +52,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        try {
+            super.onBackPressed()
+        } catch (e: Resources.NotFoundException) {
+            Log.e(TAG, "Error occurred while destroying activity: ${e.message}")
+        }
+        finishAffinity()
+    }
+
+
+
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
@@ -65,11 +78,12 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 if (selectedImages != null && selectedImages.size > 1) {
-                        mainPresenter.setAdapter(uriList)
-                    }
-                } else {
-                Toast.makeText(this, "Please select two images", Toast.LENGTH_SHORT).show()
-            }
+                    mainPresenter.setAdapter(uriList)
+
+                }
+            } else {
+                mainView.showToastMessage()
             }
         }
     }
+}

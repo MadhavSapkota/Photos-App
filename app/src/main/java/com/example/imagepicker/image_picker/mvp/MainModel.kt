@@ -14,6 +14,5 @@ class MainModel(
             .setMaxCount(MAX_IMAGES)
             .startAlbumWithOnActivityResult(REQUEST_CODE_PICK_IMAGES)
     }
-
 }
 

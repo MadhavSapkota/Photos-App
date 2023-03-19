@@ -1,8 +1,10 @@
 package com.example.imagepicker.image_picker.mvp
 import android.net.Uri
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.imagepicker.R
 import com.example.imagepicker.databinding.ActivityMainBinding
 import com.example.imagepicker.image_picker.adapter.ImageAdapter
 import com.jakewharton.rxbinding2.view.RxView
@@ -36,7 +38,10 @@ class MainView(
     }
 
     fun showToastMessage(){
-        Toast.makeText(appCompatActivity, "Please select two images", Toast.LENGTH_SHORT).show()
+        Toast.makeText(appCompatActivity, R.string.toast_message, Toast.LENGTH_SHORT).show()
     }
+     fun hidePickImage(){
+         binding!!.pickImageButton.visibility = View.GONE
+     }
 }
 

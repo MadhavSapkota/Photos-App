@@ -2,7 +2,6 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".image_picker.MainActivity">
@@ -13,7 +12,7 @@
       android:layout_margin="@dimen/_10sdp"
      android:layout_centerHorizontal="true"
       android:layout_height="wrap_content"
-      android:text="Pick an image" />
+      android:text="@string/activity_pick_btn"/>
   
   <include
       android:id="@+id/recyclerViewImage"
@@ -25,6 +24,7 @@
       android:layout_marginRight="@dimen/_14sdp"
       android:layout_marginBottom="@dimen/_5sdp"
       layout="@layout/project_recyclerview"
+      android:layout_centerHorizontal="true"
       android:layout_width="match_parent"
       android:layout_height="wrap_content" />
   
