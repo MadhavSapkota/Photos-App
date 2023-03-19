@@ -4,12 +4,10 @@ import android.net.Uri
 class MainPresenter(
     private val mainView: MainView,
     private val mainModel: MainModel
-) { fun onCreateView() {
-        onClick()
-    }
+) {
 
-    fun getBack(){
-        mainModel.openImageGallery();
+    fun onCreateView() {
+        onClick()
     }
 
     fun onClick() {
@@ -18,8 +16,7 @@ class MainPresenter(
         }.subscribe()
     }
 
-     fun setAdapter(imageData:ArrayList<Uri>) {
+    fun setAdapter(imageData:ArrayList<Uri>) {
         mainView.showListItems(imageData, true)
     }
-
 }

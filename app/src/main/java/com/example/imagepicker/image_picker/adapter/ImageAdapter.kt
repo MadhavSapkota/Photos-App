@@ -29,21 +29,34 @@ class ImageAdapter(var context: Context) : RecyclerView.Adapter<ImageHolder>() {
                 .into(holder.ivImage)
 
         }catch (ex: Exception) {
+
         }
+        holder.textView.text= (position+1).toString()
     }
 
-    //show news list
+
+    //add animal list
     @SuppressLint("NotifyDataSetChanged")
     fun showImageItem(imageData: ArrayList<Uri>, aboolean: Boolean) {
         when {
             aboolean -> uriList.clear()
         }
-        if (imageData != null){
-            for (i in 0 until 50) {
-            this.uriList.addAll((imageData))
-        notifyDataSetChanged()
-    }}}
-
+        if (imageData != null) {
+            uriList.clear()
+            var dogCount = 0
+            var catCount = 0
+            for (i in 1 until 51) {
+                if (i == 1 || i == 3 || i == 6 || i == 10 || i == 15 || i == 21) {
+                    uriList.add(imageData[0]) // add image of dog
+                    dogCount++
+                } else {
+                    uriList.add(imageData[1]) // add image of cat
+                    catCount++
+                }
+            }
+            notifyDataSetChanged()
+        }
+    }
 
     override fun getItemCount(): Int {
         return uriList.size

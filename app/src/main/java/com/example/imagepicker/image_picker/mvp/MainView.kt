@@ -1,12 +1,11 @@
 package com.example.imagepicker.image_picker.mvp
 import android.net.Uri
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imagepicker.databinding.ActivityMainBinding
 import com.example.imagepicker.image_picker.adapter.ImageAdapter
 import com.jakewharton.rxbinding2.view.RxView
-import com.sangcomz.fishbun.Fishton.selectedImages
 import io.reactivex.Observable
 import java.util.ArrayList
 
@@ -25,26 +24,19 @@ class MainView(
         imageAdapter.showImageItem(imageData, aboolean)
     }
 
-
     fun getBackObserable(): Observable<Any> {
         return RxView.clicks(binding!!.pickImageButton)
     }
 
     fun setImageAdapter() {
-//        var layoutmanager: LinearLayoutManager? = LinearLayoutManager(appCompatActivity, LinearLayoutManager.VERTICAL, false)
-//        binding!!.recyclerViewImage.dashboardRecyclerView.setHasFixedSize(true)
-//        binding!!.recyclerViewImage.dashboardRecyclerView.layoutManager = layoutmanager
-//        binding!!.recyclerViewImage.dashboardRecyclerView.adapter = imageAdapter
-//
-
         val gridLayoutManager = GridLayoutManager(appCompatActivity,2 )
         binding!!.recyclerViewImage.dashboardRecyclerView.setHasFixedSize(true)
         binding!!.recyclerViewImage.dashboardRecyclerView.layoutManager = gridLayoutManager
         binding!!.recyclerViewImage.dashboardRecyclerView.adapter = imageAdapter
-
-
     }
 
-
+    fun showToastMessage(){
+        Toast.makeText(appCompatActivity, "Please select two images", Toast.LENGTH_SHORT).show()
+    }
 }
 
